@@ -1,25 +1,25 @@
-<!DOCTYPE html>                                                                                 
+<!DOCTYPE html>
 <html lang="ja">
-<head>                                                                                          
+<head>
   <meta charset="UTF-8">
   <title>Todoアプリ</title>
-</head>                                                                                         
+</head>
 <body>
-  <h1>My Todo App</h1>                                                                             
+  <h1>My Todo App</h1>
   <input type="text" id="todo-input" placeholder="Todoを入力">
-  <button onclick="addTodo()">追加</button>                                                     
+  <button type="button" onclick="addTodo()">追加</button>
   <ul id="todo-list"></ul>
-                                                                                                
-  <script>      
+
+  <script>
     function addTodo() {
-      const input = document.getElementById('todo-input');                                      
+      const input = document.getElementById('todo-input');
       const list = document.getElementById('todo-list');
-      if (input.value === '') return;                                                           
+      if (input.value === '') return;
       const li = document.createElement('li');
-      li.textContent = input.value;                                                             
+      li.textContent = input.value;
       list.appendChild(li);
-      input.value = '';                                                                         
-    }           
+      input.value = '';
+    }
   </script>
 </body>
 </html>
