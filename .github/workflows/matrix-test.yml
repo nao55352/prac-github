@@ -1,0 +1,26 @@
+name: Matrix Test
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  html-validate:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [18, 20, 24]
+    steps:
+      - name: リポジトリをチェックアウト
+        uses: actions/checkout@v4
+
+      - name: Node.js ${{ matrix.node-version }} をセットアップ
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      - name: html-validateをインストール
+        run: npm install -g html-validate
+
+      - name: HTMLの構文チェック
+        run: html-validate index.html
