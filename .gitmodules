@@ -1,3 +1,0 @@
-[submodule "libs/todo-shared-lib"]
-	path = libs/todo-shared-lib
-	url = git@github.com:nao55352/todo-shared-lib.git
