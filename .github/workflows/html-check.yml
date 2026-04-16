@@ -8,18 +8,6 @@ on:
 
 jobs:
   html-validate:
-    runs-on: ubuntu-latest
-    steps:
-      - name: リポジトリをチェックアウト
-        uses: actions/checkout@v4
-
-      - name: Node.jsをセットアップ
-        uses: actions/setup-node@v4
-        with:
-          node-version: 24
-
-      - name: html-validateをインストール
-        run: npm install -g html-validate
-
-      - name: HTMLの構文チェック
-        run: html-validate index.html
+    uses: ./.github/workflows/reusable-html-check.yml
+    with:
+      html-path: index.html
