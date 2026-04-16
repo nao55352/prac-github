@@ -1,0 +1,18 @@
+name: 'Setup Node'
+description: 'Node.jsのセットアップとhtml-validateのインストールを行う'
+inputs:
+  node-version:
+    description: 'Node.jsのバージョン'
+    required: false
+    default: '24'
+runs:
+  using: 'composite'
+  steps:
+    - name: Node.jsをセットアップ
+      uses: actions/setup-node@v4
+      with:
+        node-version: ${{ inputs.node-version }}
+
+    - name: html-validateをインストール
+      run: npm install -g html-validate
+      shell: bash

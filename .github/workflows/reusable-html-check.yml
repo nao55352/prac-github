@@ -14,13 +14,8 @@ jobs:
       - name: リポジトリをチェックアウト
         uses: actions/checkout@v4
 
-      - name: Node.jsをセットアップ
-        uses: actions/setup-node@v4
-        with:
-          node-version: 24
-
-      - name: html-validateをインストール
-        run: npm install -g html-validate
+      - name: Node.jsのセットアップとhtml-validateのインストール
+        uses: ./.github/actions/setup-node
 
       - name: HTMLの構文チェック
         run: html-validate ${{ inputs.html-path }}
